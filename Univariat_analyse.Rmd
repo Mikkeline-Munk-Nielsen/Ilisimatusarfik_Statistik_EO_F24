@@ -1,0 +1,25 @@
+---
+title: "Univariate analyser"
+author: "Mikkeline Munk Nielsen"
+date: "2023-12-29"
+output: html_document
+---
+
+```{r echo=FALSE}
+pacman::p_load(tidyverse, dplyr, tidyr, ggplot2)
+
+```
+
+I denne øvelse skal I tilbage i R-studio og arbejde med univariate analyser. I skal prøve kræfter med European Social Survey (ESS), en kæmpe survey der gennemføres i 20 forskellige EU lande. European Social Survey er et samfundsvidenskabeligt forsøg på at kortlægge holdninger, overbevisninger og adfærdsmønstre hos de forskellige befolkninger i Europa. Der findes mange runder med forskellige temaer, men alle spørger ind til grundlæggende socioøkonomiske variable: `https://ess.sikt.no/en/?tab=overview`
+
+```{r}
+
+install.packages("essurvey")
+library(essurvey)
+
+set_email("mikkelinemunk@gmail.com")
+
+show_countries()
+
+```
+

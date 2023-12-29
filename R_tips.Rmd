@@ -1,0 +1,59 @@
+---
+title: "R_tips"
+author: "Mikkeline Munk Nielsen"
+date: "2023-12-29"
+output: html_document
+---
+
+## R-studio arbejdsmiljø
+Lad os starte med at sætte vores arbejdsmiljø op i R-Studio, så det er nemt at arbejde med. Det første I skal gøre er, at finde det R-projekt, som I arbejdede med sidste semester. Klik for at åbne projektet i R-studio!
+
+R-projects er smarte, fordi de sikrer dig, at du arbejder i den rigtige mappe på din computer. Hvis du har dit script i én mappe, men forsøger at åbne et datasær fra en anden mappe, så vil du få en fejlmeddelelse, der siger, at R ikke kan finde dit datasæt. Når du har åbnet dit R-project, så start derfor med at check hvilken mappe du arbejder i lige nu, med funktionen `getwd()` (get working directory)
+
+```{r}
+# Vis mig, hvilken mappe jeg arbejder I lige nu
+getwd()
+
+```
+Funktionen returnerer en linje med stien til dit R-project på mit computer. Det er en enormt basal men nyttig funktion. Hvis du har havnet i den forkerte mappe på din computer ved en fejl skal du sørge for at lægge dit script og dit datasæt i samme mappe som dit R-project. Ellers kan du manuelt definere stien til datasættet. Hvis du f.eks. har gemt dit datasæt i en undermappe, der hedder "Data", kunne det se sådan ud:
+
+```{r eval=FALSE}
+
+df <- read_xlsx("C:/Users/mmn/Dropbox/Ilisimatusarfik/R/Data/excel_fil.xlsx")
+
+```
+
+
+### Pakker og opdateringer
+Har du opdateret til den seneste version af R-studio? Hvis ikke, så gå klik på "Help" i fanebladet øverst, og tryk på "Check for updates". 
+
+Når vi skal bruge funktioner i R kræver det oftest, at vi downloader og indlæser pakker:
+
+```{r eval=FALSE}
+
+# Download og installér pakken tidyverse
+install.packages("tidyverse")
+
+# Indlæs tidyverse ved at tilføje det til dit "biliotek" af pakker
+library(tidyverse)
+```
+
+Et alternativ til at indlæse pakker med basisfunktionerne er at bruge en package manager "pacman"! Pacman kan f.eks. både installere, indlæse og updatere flere pakker på en gang:
+
+```{r eval=FALSE}
+
+# Start med at download pacman the old fashioned way
+install.packages("pacman")
+
+# Installér og indlæs nu flere pakker på en gang:
+
+pacman::p_load(dplyr, tidyr, ggplot2)
+
+# Eller opdater pakkerne
+pacman::p_update(dplyr, tidyr, ggplot2)
+
+
+```
+Som et alternativ kan du opdatere ALLE dine pakker på en gang ved at gå til "Tools" og trykke på "Check for package updates" markere alle og trykke "opdatér". 
+
+
